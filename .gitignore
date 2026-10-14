@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+*.py[cod]
+vehicledataops.db
+.streamlit/secrets.toml
