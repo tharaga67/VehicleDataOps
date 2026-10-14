@@ -1,56 +1,63 @@
 # VehicleDataOps
-### Automotive Manufacturing Data Engineering & Quality Dashboard
+## Automotive Manufacturing Data Engineering & Quality Dashboard
 
-VehicleDataOps is a beginner-friendly portfolio project demonstrating an end-to-end data workflow on **synthetic factory production data**. It is designed to be easy to run, explain, customize, and deploy.
+VehicleDataOps is a small data engineering portfolio project that demonstrates how factory production records can be processed, validated, stored, and explored through an interactive dashboard.
 
-## What it demonstrates
-- **Extract:** Read factory production records from CSV using Pandas.
-- **Transform:** Standardize text fields, convert data types, handle missing values, and derive defect-rate metrics.
-- **Validate:** Detect duplicate IDs and flag invalid measurements.
-- **Load:** Load the processed dataset into a SQLite table.
-- **Analyze:** Summarize production volume, defects, defect rate, and quality status by production line.
-- **Present:** Explore and filter results in an interactive Streamlit dashboard; download processed records.
+**Technology stack:** Python, Pandas, SQL, SQLite, Streamlit
 
-> Important: The included dataset is synthetic and is not real Tata Motors or other manufacturer data.
+> **Dataset note:** The repository includes synthetic demonstration data. It is not real Tata Motors data or data from any other manufacturer.
+
+## Project workflow
+
+1. **Extract:** Read production records from a CSV file using Pandas.
+2. **Transform:** Standardize text fields, convert data types, handle missing values, and calculate defect-rate metrics.
+3. **Validate:** Check for duplicate record IDs and flag invalid measurements.
+4. **Load:** Store the processed records in a SQLite table.
+5. **Analyze:** Summarize production volume, defects, defect rate, and quality status by production line.
+6. **Visualize:** Use an interactive Streamlit dashboard to filter records, inspect metrics, and download processed data.
+
+## Key features
+
+- CSV-based data ingestion
+- Data cleaning and missing-value handling
+- Duplicate record checks and basic validation rules
+- Derived defect-rate and quality-status fields
+- SQLite data storage
+- Production-line and quality-status filters
+- Summary charts and downloadable processed records
 
 ## Run locally
-Recommended: Python 3.11 or 3.12.
+
+Python 3.11 or 3.12 is recommended.
 
 ```bash
 python -m venv .venv
-# Windows PowerShell:
+
+# Windows PowerShell
 .venv\Scripts\Activate.ps1
-# macOS/Linux:
+
+# macOS/Linux
 source .venv/bin/activate
 
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Deploy a public demo
-1. Create a GitHub repository named `VehicleDataOps`.
-2. Upload the contents of this folder to your repository (keep `app.py`, `requirements.txt`, and `data/factory_production.csv`).
-3. Sign in to Streamlit Community Cloud with GitHub: https://share.streamlit.io/
-4. Choose **Create app**, select your repository and branch, and set the main file path to `app.py`.
-5. Deploy. Streamlit will give you your own public `*.streamlit.app` URL.
-6. Open that URL in a private/incognito window to verify it works before putting it on your resume.
+The application should open in your browser at the local Streamlit address shown in the terminal.
 
-Official deployment guide: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
+## Deploy
 
-## Suggested resume entry (use only after you have run and verified it)
-**VehicleDataOps — Automotive Manufacturing Data Engineering Dashboard** | Python, Pandas, SQL (SQLite), Streamlit
-- Built a CSV-to-SQLite ETL workflow to clean, validate, and transform synthetic factory production records.
-- Implemented missing-value handling, duplicate-ID checks, quality flags, and defect-rate calculations.
-- Developed an interactive dashboard to analyze production, defects, and quality status by production line.
+The application can be deployed from this GitHub repository using Streamlit Community Cloud.
 
-## Make it genuinely yours
-- Change the dashboard design and add at least one feature of your own.
-- Add a short `docs/architecture.png` or architecture section to the README.
-- Write a few SQL queries and explain the results.
-- Add screenshots and document what you tested.
-- Be prepared to explain every line and every metric in an interview.
+1. Sign in to Streamlit Community Cloud with GitHub.
+2. Create an app and select this repository and the `main` branch.
+3. Set the main file path to `app.py`.
+4. Deploy and verify the app after startup.
+
+Deployment guide: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
 
 ## Repository structure
+
 ```text
 VehicleDataOps/
 ├── app.py
@@ -59,3 +66,7 @@ VehicleDataOps/
 └── data/
     └── factory_production.csv
 ```
+
+## Scope and limitations
+
+This is a portfolio demonstration of a small batch ETL workflow. It uses synthetic data and simple validation rules; it is not a production manufacturing system and does not establish real-world failure predictions. The project can be extended with a real, appropriately licensed dataset, additional SQL analysis, automated tests, and more detailed data-quality reporting.
